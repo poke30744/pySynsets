@@ -25,11 +25,12 @@ def printExpaneded(item, depth, field, metaArray):
             childItem = metaArray[childId - 1]
             printExpaneded(childItem, depth + len(item[field][:20]), field, metaArray)
 
-def printItems(items, args, metaArray):
+def printItems(itemIds, args, metaArray):
     table_fmt = '{:<13} | {:<9} | {:<40} | {:<40} | {:<12} | {:<20} | {:<14} | {:<5}'
     if args.table:
         print(table_fmt.format('ILSVRC2012_ID', 'WNID', 'words', 'gloss', 'num_children', 'children', 'wordnet_height', 'num_train_images'))
-    for item in items:
+    for itemId in itemIds:
+        item = metaArray[itemId - 1]
         if args.verbose:
             print('ILSVRC2012_ID:    %s' % (item['ILSVRC2012_ID']))
             print('WNID:             %s' % (item['WNID']))
@@ -55,8 +56,15 @@ def printItems(items, args, metaArray):
         elif args.expand:
             printExpaneded(item, 0, args.expand, metaArray)
 
+def ListChildren(item, metaArray):
+    childrenIds = set({})
+    for childId in item['children']:
+        childrenIds.add(childId)
+        childrenIds |= ListChildren(metaArray[childId - 1], metaArray)
+    return childrenIds
+
 def filterItems(args, metaArray):
-    itemsFound = []
+    itemsIds = set({})
     for item in metaArray:
         if not args.ILSVRC2012_ID in ('*', str(item['ILSVRC2012_ID'])):
             continue
@@ -68,11 +76,10 @@ def filterItems(args, metaArray):
             continue
 
         if args.listChildren:
-            for childId in item['children']:
-                itemsFound.append(metaArray[childId - 1])
+            itemsIds |= ListChildren(item, metaArray)
         else:
-            itemsFound.append(item)
-    return itemsFound
+            itemsIds.add(item['ILSVRC2012_ID'])
+    return itemsIds
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='A tool to inspect Synsets of ILSVRC2012')
@@ -106,5 +113,5 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     metaArray = loadMetaMat('meta.mat')
-    items = filterItems(args, metaArray)
-    printItems(items, args, metaArray)
+    itemIds = filterItems(args, metaArray)
+    printItems(itemIds, args, metaArray)
