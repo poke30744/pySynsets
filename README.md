@@ -38,11 +38,16 @@ optional arguments:
 ```
 pySynsets.py -words cat -table
 ```
+![alt text](https://raw.githubusercontent.com/fanxiaoju/pySynsets/master/images/example1.PNG)
+
 2. Get verbose information about WNID "n02509815"
 ```
 pySynsets.py -WNID n02509815 -verbose
 ```
+![alt text](https://raw.githubusercontent.com/fanxiaoju/pySynsets/master/images/example2.PNG)
+
 3. Expand WNID 'n02121620' (cat) in to a hierarchy tree
 ```
 pySynsets.py -WNID n02121620 -expand words
 ```
+![alt text](https://raw.githubusercontent.com/fanxiaoju/pySynsets/master/images/example3.PNG)
