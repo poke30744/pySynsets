@@ -52,7 +52,7 @@ pySynsets.py -WNID n02121620 -expand words
 ```
 ![alt text](https://raw.githubusercontent.com/fanxiaoju/pySynsets/master/images/example3.PNG)
 
-3. List childern of WNID 'n02121620' (cat) in table
+4. List childern of WNID 'n02121620' (cat) in table
 ```
 pySynsets.py -WNID n02121620 -listChildren -table
 ```
