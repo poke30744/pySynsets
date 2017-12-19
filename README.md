@@ -34,11 +34,11 @@ optional arguments:
   -listChildren         list children instead the item
 ```
 ## Same examples
-1.List all items that cantain string "cat" in field "words" in a table
+1. List all items that cantain string "cat" in field "words" in a table
 ```
 pySynsets.py -words cat -table
 ```
-2.Get verbose information about WNID "n02509815"
+2. Get verbose information about WNID "n02509815"
 ```
 pySynsets.py -WNID n02509815 -verbose
 ```
