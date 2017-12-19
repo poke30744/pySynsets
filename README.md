@@ -1,5 +1,5 @@
 # pySynsets
-A python command line tool to inspect "Synsets" of ILSVRC2012
+A python command line tool to inspect "Synsets" in meta.mat of ILSVRC2012's devkit
 
 ## Usage
 Download **ILSVRC2012_devkit_t12.tar.gz** from http://www.image-net.org/challenges/LSVRC/2012/nonpub-downloads.
