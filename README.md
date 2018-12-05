@@ -38,22 +38,22 @@ optional arguments:
 ```
 pySynsets.py -words cat -table
 ```
-![alt text](https://raw.githubusercontent.com/fanxiaoju/pySynsets/master/images/example1.PNG)
+![alt text](https://raw.githubusercontent.com/poke30744/pySynsets/master/images/example1.PNG)
 
 2. Get verbose information about WNID "n02509815"
 ```
 pySynsets.py -WNID n02509815 -verbose
 ```
-![alt text](https://raw.githubusercontent.com/fanxiaoju/pySynsets/master/images/example2.PNG)
+![alt text](https://raw.githubusercontent.com/poke30744/pySynsets/master/images/example2.PNG)
 
 3. Expand WNID 'n02121620' (cat) into a hierarchy tree
 ```
 pySynsets.py -WNID n02121620 -expand words
 ```
-![alt text](https://raw.githubusercontent.com/fanxiaoju/pySynsets/master/images/example3.PNG)
+![alt text](https://raw.githubusercontent.com/poke30744/pySynsets/master/images/example3.PNG)
 
 4. List childern of WNID 'n02121620' (cat) in table
 ```
 pySynsets.py -WNID n02121620 -listChildren -table
 ```
-![alt text](https://raw.githubusercontent.com/fanxiaoju/pySynsets/master/images/example4.PNG)
+![alt text](https://raw.githubusercontent.com/poke30744/pySynsets/master/images/example4.PNG)
